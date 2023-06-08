@@ -1,42 +1,92 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #7ab8d3,#7ac4dd,#b7cfda);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    z-index: 99; 
+    /* background: red;   */
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.blog__logo{
+    font-size: 2em;
+    color: white;
+    user-select: none;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.blog{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card {
-  padding: 2em;
+.blog a {
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
 }
 
-.read-the-docs {
-  color: #888;
+
+.blog a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.blog a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.blog__sign {
+    
+    margin-left: 40px;
+    display: flex;
+    gap: 10px;
+    font-size: 1.1em;
+    
+}
+
+.blog__sign .btn{
+    background: transparent;
+    width: 60px;
+    height: 30px;
+    font-weight: 500;
+    border: 2px solid white;
+    border-radius: 6px;
+    color: white ;
+    outline: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.blog__sign .btn:hover{
+    background: white;
+    color: #162938;
 }
