@@ -78,7 +78,7 @@ body{
     width: 60px;
     height: 30px;
     font-weight: 500;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 6px;
     color: white ;
     outline: none;
@@ -87,6 +87,24 @@ body{
 }
 
 .blog__sign .btn:hover{
+    background: gainsboro;
+    color: #162938;
+}
+
+.blog__sign .btn-login{
+    background: #FBC02D;
+    width: 60px;
+    height: 30px;
+    font-weight: 500;
+    border: 1px solid white;
+    border-radius: 6px;
+    color: white ;
+    outline: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.blog__sign .btn-login:hover{
     background: white;
     color: #162938;
 }

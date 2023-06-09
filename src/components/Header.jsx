@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 
+
 const Header = () => {
   return (
     <div className='navbar'>
@@ -11,9 +12,9 @@ const Header = () => {
         <Link to='/about'>About</Link>
         <Link to='/contact'>Contact</Link>
       </div>
-      <div class="blog__sign">
-          <button class="btn">Login</button>
-          <button class="btn ">Sign Up</button>
+      <div class="blog__sign">          
+           <Link to='/login'><button class="btn-login">Login</button></Link>
+           <Link to='/signup'><button class="btn " >Sign Up</button></Link>
         </div>
     </div>
   )
