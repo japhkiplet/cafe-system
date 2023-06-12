@@ -9,12 +9,13 @@ const Header = () => {
       </div>
       <div className='blog'>
         <Link to='/'>Home</Link>
+        <Link to='/menu'>Menu</Link>
         <Link to='/about'>About</Link>
         <Link to='/contact'>Contact</Link>
       </div>
       <div class="blog__sign">          
            <Link to='/login'><button class="btn-login">Login</button></Link>
-           <Link to='/signup'><button class="btn " >Sign Up</button></Link>
+           
         </div>
     </div>
   )

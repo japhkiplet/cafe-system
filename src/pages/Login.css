@@ -1,37 +1,84 @@
 #form{
-    width: 350px;
+    width: 250px;
     margin: 10vh auto 0 auto;
     height: auto;
     padding: 10px;
     background-color: transparent;
     border-radius: 10px;
     font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
     box-shadow: 0 8px 12px rgba(0, 0,0, .2);
   
   }
   
-  
-  
-  #form .btn{
-    padding: 5px;
-    margin-top: 5px;
-    width: 30%;
-    display: inline-flex;
-    justify-content: center;
+  #form .login-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    gap: 7px;
+    
+    
+  }
+  /* #form  .btn{
+    background: blue;
+    outline: none;
+    border: 1px solid black;
+    width: 20vh;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    float: left;
+  }
+  #form  .btn:hover{
+    background: white;
+    color: darkblue;
+  }
+   */
+  #form .login-buttons .btn{
+    padding: 5px;
+    margin-top: 10px;
+    width: 60%;
+    height: 30px;   
     color: white;
     background: darkblue;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
   }
   
-  #form .btn:hover{
-    background: lightblue;
-    color: green;
+  #form .login-buttons .btn:hover{
+    background: white;
+    color: darkblue;
+  }
+
+  #form .login-buttons .navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    gap: 10px;
+    margin-left: -20px;
+  }
+
+  #form .login-buttons .navigation a{
+    text-decoration: none;
+    font-size: 1.1em;
+    /* color: white; */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 10px;
+    width: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    
+
+  }
+  #form .login-buttons .navigation a:hover{
+    background: lightseagreen;
+    color: white;
+    border-radius: 6px;
   }
 
   h3{
@@ -39,6 +86,7 @@
     color: aliceblue;
     justify-content: center;
     align-items: center;
+    margin-left: 75px;
   }
   
   
@@ -46,6 +94,8 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
+    width: 90%;
+    margin-left: 10px;
   
   }
   

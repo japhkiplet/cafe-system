@@ -45,8 +45,15 @@ const login = () => {
               <p>{errors.password?.message}</p>  
                 
           </div>
+          <div className="login-buttons">
+            <input type="submit" value="Login"  className="btn"/>
+            <div className="navigation">
+              <p>I don't have an account</p>
+              <Link to='/signup'>Sign-Up</Link>
+            </div>
+          </div>
 
-          <input type="submit" value="Login"  className="btn"/>
+          
        </form>
           
     </div>

@@ -1,0 +1,39 @@
+.menu-containe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 5rem;
+    /* background: darkblue; */
+}
+
+.menu{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin-top: 5rem;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('../images/menu.jpg')no-repeat center center/cover;
+    /* opacity: .9; */
+
+}
+.desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 3rem; */
+    background: hsl(237, 23%, 23%);
+    height: 20vh;
+    border-radius: 10px;
+}
+.desc p{
+    padding: 10px;
+    color: lightgray;
+    text-transform: capitalize;
+}

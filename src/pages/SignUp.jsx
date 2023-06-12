@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { Link } from "react-router-dom"
 import './Login.css'
 
 
@@ -72,7 +73,14 @@ const Schema =yup.object().shape({
                 
           </div>
 
-          <input type="submit" value="Submit"  className="btn"/>
+          <div className="login-buttons">
+            <input type="submit" value="Submit"  className="btn"/>
+            <div className="navigation">
+              <input type="checkbox" />
+                <p>I have an account</p>
+                <Link to='/login'>login</Link>
+              </div>
+          </div>
           
        </form>
     </div>

@@ -1,0 +1,105 @@
+
+.table {
+    background: url('../images/contact-bg.jpg')no-repeat;
+    background-size: cover;
+    /* background-position: ; */
+    height: 100vh;
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    opacity: .8;
+    
+}
+
+.table h1 {
+    font-family: 'Ibarra real nova', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-bottom: 7px;
+    
+}
+
+
+
+/* <-----------------------------------------------------> */
+
+.details {
+    display: flex;
+    padding-top: 30px;
+   
+}
+
+/* <-------------------------LEFT-------------------------> */
+.details .detail-left {
+    font-size: 1.2rem;
+    /* padding-left: .3rem; */
+    /* margin-right: .3rem; */
+    /* width: auto; */
+    /* padding-left: 9rem; */
+}
+
+.details .detail-left input {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid white;
+    width: 40vw;
+    padding: 1.3rem;
+}
+
+
+.details .detail-left ::placeholder {
+    color: white;
+    font-weight: 200;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', sans-serif;
+
+}
+
+
+
+/* <-------------------------RIGHT-----------------------> */
+
+
+
+.detail-right {
+    padding: .3rem;
+    margin: .3rem;
+    font-size: 2rem;
+    padding-left: 5rem;
+}
+
+.details .detail-right input {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid white;
+    width: 40vw;
+    padding: 1.3rem;
+}
+
+
+.details .detail-right ::placeholder {
+    color: white;
+    font-weight: 200;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', sans-serif;
+
+}
+
+
+
+/* <-------------------------BOTTOM-------------------------> */
+
+.detail-bottom .form-group {
+    padding-top: 20px;
+    background: transparent;
+    
+}
+
+ .detail-bottom input {
+    color: white;
+}
