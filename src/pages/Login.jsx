@@ -30,7 +30,7 @@ const login = () => {
     }
 
   return (
-    <div className="container">
+    <div className="login-container">
       <form id="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Login</h3>
        <div class="input-control">

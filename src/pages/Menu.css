@@ -11,7 +11,7 @@
 .menu{
     position: relative;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     margin-top: 5rem;
     padding: 20px;
     display: flex;

@@ -1,3 +1,10 @@
+.login-container{
+  width: 100vw;
+  margin: 20px;
+  min-height: 50vh;
+  
+}
+
 #form{
     width: 250px;
     margin: 10vh auto 0 auto;
@@ -43,6 +50,7 @@
     background: darkblue;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
   }
   
   #form .login-buttons .btn:hover{
@@ -66,6 +74,7 @@
     /* color: white; */
     text-decoration: none;
     font-weight: 500;
+    padding: 10px;
     margin-left: 10px;
     width: 50px;
     display: inline-flex;
@@ -75,18 +84,22 @@
     
 
   }
+  .navigation p{
+    color: rgb(22, 20, 20);
+  }
   #form .login-buttons .navigation a:hover{
     background: lightseagreen;
     color: white;
+  
     border-radius: 6px;
   }
 
   h3{
     display: inline-flex;
-    color: aliceblue;
+    color: darkgray;
     justify-content: center;
     align-items: center;
-    margin-left: 75px;
+    margin-left: 40px;
   }
   
   
@@ -108,7 +121,7 @@
     padding: 12px;
     /* margin-bottom: 10px; */
     width: 100%;
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: 0 5px 7px rgba(0, 0,0, .2);
     
   }

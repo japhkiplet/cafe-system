@@ -37,7 +37,7 @@ const Schema =yup.object().shape({
 
 
   return (
-    <div className="container">
+    <div className="login-container">
      <form id="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Register with us!</h3>
          <div class="input-control">

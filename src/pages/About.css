@@ -5,18 +5,18 @@
     align-items: center;
     width: 100%;
     height: 150vh; 
-    background: url('../images/1.jpg') no-repeat;
+    background: url('../images/about.jpg') no-repeat;
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
 }
 
 .about .about-img{
-    height: 20vh;
+    /* height: 20vh; */
     padding: 20px;
-    background: lightgray;
+    /* background: rgb(98, 12, 196); */
     top: 0;
     /* gap: 2rem; */
-    color: darkslateblue;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +38,7 @@
     padding: 20px;
     width: 60%;
     height: auto;
-    background: lightgray;
+    /* background: lightgray; */
     border-radius: 8px;
 
 }
@@ -56,11 +56,11 @@
     box-shadow: 3px 5px 7px rgba(0, 0, 0, .3);
     border-radius: 7px;
     transition: transform .5s;
-    cursor: pointer;
+    
 }
 
 .about-inputs-control:hover{
-    background: rgb(238, 202, 202);
+    border: rgb(247, 125, 55);
     /* color: whitesmoke; */
 
 }

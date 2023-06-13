@@ -4,8 +4,7 @@ const About = () => {
   return (
     <div className="about">
       <div className="about-img">
-        <h1>THE HIGHLAND CAFE </h1>
-        <p>we love all our customers</p>
+        
    
       </div>
           

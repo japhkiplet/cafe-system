@@ -15,7 +15,7 @@ function App() {
   
 
   return (
-    <>
+    <div className='main-body'>
     <BrowserRouter>
       <Header/>
       <Routes>
@@ -33,7 +33,7 @@ function App() {
       <Footer/>
     </BrowserRouter>
       
-    </>
+    </div>
   )
 }
 
