@@ -72,11 +72,19 @@ const Schema =yup.object().shape({
               <p>{errors.confirmPassword?.message}</p>
                 
           </div>
+          
+          <div className="remember-forgot">
+           <div className="label">
+             <input type="checkbox" />
+              <p>I agree with Terms and Conditions</p>
+            </div>
+           
+          </div>
 
           <div className="login-buttons">
-            <input type="submit" value="Submit"  className="btn"/>
+            <input type="submit" value="Register"  className="btn"/>
             <div className="navigation">
-              <input type="checkbox" />
+              
                 <p>I have an account</p>
                 <Link to='/login'>login</Link>
               </div>

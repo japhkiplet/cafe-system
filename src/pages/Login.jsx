@@ -45,6 +45,13 @@ const login = () => {
               <p>{errors.password?.message}</p>  
                 
           </div>
+          <div className="remember-forgot">
+           <div className="label">
+             <input type="checkbox" />
+              <p>Remember Me</p>
+            </div>
+           <Link to="#">Forgot Password</Link>
+          </div>
           <div className="login-buttons">
             <input type="submit" value="Login"  className="btn"/>
             <div className="navigation">
