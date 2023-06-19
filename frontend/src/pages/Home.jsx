@@ -14,7 +14,7 @@ const Home = () => {
           </div>
           <div className="home-description">
             <h1>Black Coffee is Awesome</h1>
-            <p>Time to Discver a Coffee cup</p>
+            <p>Time to Discover a Coffee cup</p>
 
             <Link to="/booking">
               <button class="btn-book">Book a Table</button>
@@ -72,7 +72,7 @@ const Home = () => {
           <div className="home-details">
             <div className="s1"></div>
             <div className="explanations">
-              <h4>CROISSANT</h4>
+              <h4>AMERICANO</h4>
               <p>
                 This is the perfect place to find a nice and cozy spot to sip
                 some
@@ -82,7 +82,7 @@ const Home = () => {
           <div className="home-details">
             <div className="s1"></div>
             <div className="explanations">
-              <h4>FRENCH TOAST</h4>
+              <h4>CAFE LATTE</h4>
               <p>
                 This is the perfect place to find a nice and cozy spot to sip
                 some
@@ -92,7 +92,7 @@ const Home = () => {
           <div className="home-details">
             <div className="s1"></div>
             <div className="explanations">
-              <h4>CHOCOLATE</h4>
+              <h4>MOCHA</h4>
               <p>
                 This is the perfect place to find a nice and cozy spot to sip
                 some
@@ -102,7 +102,7 @@ const Home = () => {
           <div className="home-details">
             <div className="s1"></div>
             <div className="explanations">
-              <h4>TURKISH COFFEE</h4>
+              <h4>ICE COFFEE</h4>
               <p>
                 This is the perfect place to find a nice and cozy spot to sip
                 some

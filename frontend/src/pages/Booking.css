@@ -16,7 +16,7 @@
 
 .table h1 {
     font-family: 'Ibarra real nova', sans-serif;
-    color: white;
+    color: #fff;
     text-transform: uppercase;
     font-size: 20px;
     padding-bottom: 7px;
@@ -45,14 +45,14 @@
 .details .detail-left input {
     background: transparent;
     border: none;
-    border-bottom: 1.5px solid white;
+    border-bottom: 1.5px solid rgb(32, 30, 30);
     width: 40vw;
     padding: 1.3rem;
 }
 
 
 .details .detail-left ::placeholder {
-    color: white;
+    color: #ddd;
     font-weight: 200;
     align-items: center;
     justify-content: center;
@@ -76,14 +76,14 @@
 .details .detail-right input {
     background: transparent;
     border: none;
-    border-bottom: 1.5px solid white;
+    border-bottom: 1.5px solid rgb(8, 8, 8);
     width: 40vw;
     padding: 1.3rem;
 }
 
 
 .details .detail-right ::placeholder {
-    color: white;
+    color: #ddd;
     font-weight: 200;
     align-items: center;
     justify-content: center;
