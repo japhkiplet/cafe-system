@@ -1,0 +1,4 @@
+*.env
+*.logo
+env
+node_modules
