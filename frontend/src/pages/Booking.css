@@ -2,25 +2,52 @@
 .table {
     background: url('../images/contact-bg.jpg')no-repeat;
     background-size: cover;
-    /* background-position: ; */
-    height: 100vh;
+    background-position: center;
+    position: relative;
     width: 100vw;
-    padding-top: 6rem;
+    margin: 10vh auto 0 auto;
+    /* height: 480px; */
+    padding: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255, .5);
+    font-size: 12px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    opacity: .8;
+    box-shadow: 0 0 30px rgba(0, 0,0, .5);
+  
     
 }
 
 .table h1 {
     font-family: 'Ibarra real nova', sans-serif;
-    color: #fff;
+    color: black;
     text-transform: uppercase;
     font-size: 20px;
-    padding-bottom: 7px;
+    padding-top: 20px;
     
+}
+.form-group{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #162938;
+    margin: 20px 0;
+}
+.form-group input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    /* color: #162938; */
+    font-size: 1em;
+    transition: .5s;
+    padding: 0 35px 0 5px;
 }
 
 
@@ -29,7 +56,10 @@
 
 .details {
     display: flex;
-    padding-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    
    
 }
 
@@ -44,19 +74,20 @@
 
 .details .detail-left input {
     background: transparent;
+    
     border: none;
-    border-bottom: 1.5px solid rgb(32, 30, 30);
+    /* border-bottom: 1.5px solid rgb(32, 30, 30); */
     width: 40vw;
-    padding: 1.3rem;
+    padding: 1.4rem;
 }
 
 
 .details .detail-left ::placeholder {
-    color: #ddd;
+    color: whitesmoke;
     font-weight: 200;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', sans-serif;
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-family:  sans-serif;
 
 }
 
@@ -76,18 +107,18 @@
 .details .detail-right input {
     background: transparent;
     border: none;
-    border-bottom: 1.5px solid rgb(8, 8, 8);
+    
     width: 40vw;
     padding: 1.3rem;
 }
 
 
 .details .detail-right ::placeholder {
-    color: #ddd;
+    color: whitesmoke;
     font-weight: 200;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', sans-serif;
+    /* align-items: center;
+    justify-content: center; */
+    font-family:  sans-serif;
 
 }
 
@@ -95,12 +126,24 @@
 
 /* <-------------------------BOTTOM-------------------------> */
 
-.detail-bottom .form-group {
-    padding-top: 20px;
+.detail-bottom .form-group1 button {
+    /* padding-top: 20px; */
     background: transparent;
+    /* display: inline-flex; */
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 20vw;
+    height: 40px;
+    color: white;
+    background: green;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     
 }
 
- .detail-bottom input {
-    color: white;
-}
+.detail-bottom .form-group1 button:hover {
+    background: white;
+    color: blue;
+} 

@@ -2,36 +2,41 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { Axios } from "axios";
 import './Login.css'
 
 
 const SignUp = () => {
-
+const navigate = useNavigate()
 const Schema =yup.object().shape({
-  userName: yup.string().required("This field is required!"),
+  username: yup.string().required("This field is required!"),
   
   email: yup.string().email('Invalid email')
   .required('Email is required'),
-  phoneNo: yup.string().required('Phone number is required')
-  .matches(
-    /^\+?[1-9]\d{1,14}$/,
-    'Phone number is invalid. It should start with a plus sign (+) and can contain up to 15 digits.'
-  ),
-  passWord: yup.string()
+  
+  password: yup.string()
   .required('Password is required')
   .min(6, 'Password must be at least 6 characters long')
   .matches(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
     'Password must contain at least one uppercase letter, one lowercase letter, and one digit'),
 
-  confirmPassword: yup.string().oneOf([yup.ref('passWord'),null]).required('please confirm your password!'),
+  confirmPassword: yup.string().oneOf([yup.ref('password'),null]).required('please confirm your password!'),
 })
 
   const {register, handleSubmit, formState: { errors }} = useForm({
     resolver :yupResolver(Schema)})
 
   const onSubmit = (data) =>{
-    console.log(data)
+    Axios.post('http//localhost:8081/auth/register',data)
+     .then((response) =>{
+      response.data.message && alert(response.data.message);
+      navigate('/login');
+     })
+     .catch((error) =>{
+      alert (response.data.error);
+     });
   }
 
 
@@ -40,33 +45,28 @@ const Schema =yup.object().shape({
     <div className="login-container">
      <form id="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Register with us!</h3>
-         <div class="input-control">
-              <input type="text" placeholder="username" {...register("userName")} />
-              <p>{errors.userName?.message}</p>              
+         <div className="input-control">
+              <input type="text" placeholder="username" {...register("username")} />
+              <p>{errors.username?.message}</p>              
           </div>
          
          
-         <div class="input-control">
+         <div className="input-control">
               
               <input type="text" placeholder="email" {...register("email")} />
               <p>{errors.email?.message}</p>    
                 
           </div>
-         <div class="input-control">
-              
-              <input type="tel" placeholder="tel" {...register("phoneNo")} />
-              <p>{errors.phoneNo?.message}</p>  
-                
-          </div>
+        
           
-         <div class="input-control">
+         <div className="input-control">
               
-              <input type="password" placeholder="password" {...register("passWord")} />
+              <input type="password" placeholder="password" name="password" {...register("password")} />
               <p>{errors.password?.message}</p>  
                 
           </div>
           
-         <div class="input-control">
+         <div className="input-control">
               
               <input type="password" placeholder="confirm password" {...register("confirmPassword")} />
               <p>{errors.confirmPassword?.message}</p>

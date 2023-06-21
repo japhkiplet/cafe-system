@@ -17,7 +17,7 @@ const Home = () => {
             <p>Time to Discover a Coffee cup</p>
 
             <Link to="/booking">
-              <button class="btn-book">Book a Table</button>
+              <button className="btn-book">Book a Table</button>
             </Link>
           </div>
         </div>

@@ -3,7 +3,7 @@ import config from "./data/config.js";
 import jwt from 'jsonwebtoken';
 import userRouter from './Routes/UserRouter.js'
 import { getAllUsers } from "./Controllers/UserController.js";
-
+import cors from 'cors'
 
 
 
@@ -12,9 +12,11 @@ import { getAllUsers } from "./Controllers/UserController.js";
 const app= express()
 
 
+
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 //jwt middleware
 app.use((req, res, next) => {

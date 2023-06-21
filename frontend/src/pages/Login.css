@@ -34,6 +34,9 @@
     
     
   }
+  .input-control > p{
+    color: red;
+  }
   /* #form  .btn{
     background: blue;
     outline: none;

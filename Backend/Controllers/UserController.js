@@ -14,7 +14,8 @@ export const loginRequired = (req, res, next) => {
 
 export const register = async (req, res) => {
     const { username, password, email } = req.body;
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(password, salt);
     try {
         let pool = await sql.connect(config.sql);
         const result = await pool.request()
@@ -29,7 +30,10 @@ export const register = async (req, res) => {
                 .input('username', sql.VarChar, username)
                 .input('password_hash', sql.VarChar, hashedPassword)
                 .input('email', sql.VarChar, email)
-                .query('INSERT INTO users (username, password-hash, email) VALUES (@username, @password_hash, @email)');
+                .input('registration_date', sql.Date, new Date())
+                .input('last_login_date', sql.Date, new Date())
+                
+                .query('INSERT INTO users (username, password_hash, email,registration_date,last_login_date) VALUES (@username, @password_hash, @email,@registration_date,@last_login_date)');
             res.status(200).send({ message: 'User created successfully' });
         }
 
@@ -49,18 +53,18 @@ export const login = async (req, res) => {
     const result = await pool.request()
         .input('email', sql.VarChar, email)
         .query('SELECT * FROM Users WHERE email = @email');
-    console.log(result.recordset[0])
+    // console.log(result.recordset[0])
     const user = result.recordset[0];
     console.log(user)
     if (!user) {
         res.status(401).json({ error: 'Authentication failed. Wrong credentials.' });
     } else {
-        console.log(password, user.hashedpassword)
-        if (!bcrypt.compareSync(password, user.password)) {
+        console.log(password, user.password_hash)
+        if (!bcrypt.compareSync(password, user.password_hash)) {
             res.status(401).json({ error: 'Authentication failed. Wrong credentials.' });
         } else {
             const token = `JWT ${jwt.sign({ username: user.username, email: user.email }, config.jwt_secret)}`;
-            res.status(200).json({ email: user.email, password: user.password,token: token });
+            res.status(200).json({ email: user.email, password: user.password_hash,token: token });
         }
     }
 
@@ -121,7 +125,7 @@ export const createUser = async (req, res) => {
         .query(
           "INSERT INTO Users VALUES (@username,  @email, @password_hash)"
         );
-      res.status(200).json({ message: "New user added successfuly" });
+      res.status(200).json({ message: "New user added successfully" });
     }
   } catch (e) {
     res.status(400).json( message);
