@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
-import { Axios } from "axios";
+import axios  from "axios";
 import './Login.css'
 
 
@@ -29,7 +29,7 @@ const Schema =yup.object().shape({
     resolver :yupResolver(Schema)})
 
   const onSubmit = (data) =>{
-    Axios.post('http//localhost:8081/auth/register',data)
+    axios.post('http//localhost:8081/auth/register',data)
      .then((response) =>{
       response.data.message && alert(response.data.message);
       navigate('/login');

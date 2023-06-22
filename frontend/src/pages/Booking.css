@@ -49,6 +49,26 @@
     transition: .5s;
     padding: 0 35px 0 5px;
 }
+select {
+    padding: 8px;
+    font-size: 16px;
+    background: transparent;
+    color: aliceblue;
+    border: none;
+    
+    width: 100%;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: green;
+    color: aliceblue;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  select option {
+    color: #333;
+    background-color: #fff;
+  }
 
 
 
@@ -83,7 +103,7 @@
 
 
 .details .detail-left ::placeholder {
-    color: whitesmoke;
+    color: rgb(248, 246, 246);
     font-weight: 200;
     /* align-items: center; */
     /* justify-content: center; */
@@ -114,7 +134,7 @@
 
 
 .details .detail-right ::placeholder {
-    color: whitesmoke;
+    color: rgb(248, 246, 246);
     font-weight: 200;
     /* align-items: center;
     justify-content: center; */

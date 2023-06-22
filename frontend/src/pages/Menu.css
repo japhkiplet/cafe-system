@@ -1,39 +1,90 @@
 .menu-containe{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 5rem;
+    left: 40px;
     /* background: darkblue; */
 }
 
 .menu{
     position: relative;
-    height: 100vh;
     width: 100vw;
-    margin-top: 5rem;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: url('../images/menu.jpg')no-repeat center center/cover;
-    /* opacity: .9; */
+    margin-top: 60px;
+    padding: 20px;   
 
 }
-.desc{
+
+.menu > h1{
+    text-align: center;
+    color: goldenrod;
+    padding: 10px;
+    border-bottom: 1px solid brown;
+    border-radius: 50px;
+}
+
+.menuwrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid rgb(7, 7, 75);
+    border-radius: 20px;
+    background: url('../images/4.jpg')no-repeat center center/cover;
+    opacity: .9;
+}
+
+.menu_details{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 3rem; */
-    background: hsl(237, 23%, 23%);
-    height: 20vh;
-    border-radius: 10px;
+    gap: 10px;
+    padding: 20px;
 }
-.desc p{
+.menu_descriptions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 380px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0,0, .5);
+
+}
+
+.menu_descriptions  h2{
     padding: 10px;
-    color: lightgray;
+    font-size: 20px;
+    color: #8a0f0f;
     text-transform: capitalize;
+    font-weight: 700;
+}
+
+.menu_descriptions p{
+    font-weight: 400;
+    color: #e7e4e4;
+}
+
+.menu_descriptions h4{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: rgb(0, 0, 0);
+}
+
+.desc{
+    text-align: center;
+    padding: 5px;
+}
+.desc > p{
+    color: red;
 }
