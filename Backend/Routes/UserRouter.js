@@ -8,7 +8,7 @@ const routes = (app) => {
         .post(loginRequired, createUser);
 
     app.route('/users/:id')
-        .put(loginRequired, updateUser)
+        .put( updateUser)
         .get( getUser)
         .delete( deleteUser);
 

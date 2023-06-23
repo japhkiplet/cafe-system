@@ -10,10 +10,12 @@ import NotFound from './pages/NotFound'
 import Order from './pages/Order'
 import Booking from './pages/Booking'
 import Menu from './pages/Menu'
-import './App.css'
+import './app.css'
+import { useContext } from "react";
+import  { context } from './context/Context'
 
 function App() {
-  
+  // const {user} = useContext(context)
 
   return (
     <div className='main-body'>
@@ -27,7 +29,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/booking' element={<Booking/>}/>
+        <Route path='/booking' element={ <Booking/> }/>
         <Route path='/menu' element={<Menu/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>

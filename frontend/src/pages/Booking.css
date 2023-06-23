@@ -1,6 +1,6 @@
 
 .table {
-    background: url('../images/contact-bg.jpg')no-repeat;
+    /* background: url('../images/contact-bg.jpg')no-repeat; */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -53,7 +53,7 @@ select {
     padding: 8px;
     font-size: 16px;
     background: transparent;
-    color: aliceblue;
+    color: rgb(1, 5, 8);
     border: none;
     
     width: 100%;
@@ -62,7 +62,7 @@ select {
   select:focus {
     outline: none;
     border-color: green;
-    color: aliceblue;
+    color: rgb(231, 102, 16);
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
   }
   select option {
@@ -103,7 +103,7 @@ select {
 
 
 .details .detail-left ::placeholder {
-    color: rgb(248, 246, 246);
+    color: rgb(12, 11, 11);
     font-weight: 200;
     /* align-items: center; */
     /* justify-content: center; */
@@ -134,7 +134,7 @@ select {
 
 
 .details .detail-right ::placeholder {
-    color: rgb(248, 246, 246);
+    color: rgb(29, 27, 27);
     font-weight: 200;
     /* align-items: center;
     justify-content: center; */

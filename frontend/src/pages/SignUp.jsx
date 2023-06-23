@@ -22,20 +22,20 @@ const Schema =yup.object().shape({
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
     'Password must contain at least one uppercase letter, one lowercase letter, and one digit'),
 
-  confirmPassword: yup.string().oneOf([yup.ref('password'),null]).required('please confirm your password!'),
+ 
 })
 
   const {register, handleSubmit, formState: { errors }} = useForm({
     resolver :yupResolver(Schema)})
 
   const onSubmit = (data) =>{
-    axios.post('http//localhost:8081/auth/register',data)
+    axios.post('http://localhost:8081/auth/register',data)
      .then((response) =>{
       response.data.message && alert(response.data.message);
-      navigate('/login');
+      navigate("/login")
      })
-     .catch((error) =>{
-      alert (response.data.error);
+     .catch(({response}) =>{
+        alert(response.data.error);
      });
   }
 
@@ -66,12 +66,7 @@ const Schema =yup.object().shape({
                 
           </div>
           
-         <div className="input-control">
-              
-              <input type="password" placeholder="confirm password" {...register("confirmPassword")} />
-              <p>{errors.confirmPassword?.message}</p>
-                
-          </div>
+        
           
           <div className="remember-forgot">
            <div className="label">

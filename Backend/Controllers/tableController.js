@@ -45,25 +45,30 @@ console.log(await checkReservationIdExists("1"));
 
 
 export const createReservation = async (req, res) => {
+  const unbookedTablesQuery = `
+  SELECT tableNumber
+  FROM reserve
+  WHERE tableNumber NOT IN (
+    SELECT tableNumber
+    FROM reservation
+  )
+`;
   try {
-    const { reservation_id, name, date, tableNumber, time ,numberOfPeople,contact} = req.body;
-    // Check if the reservation_id already exists
-    if (await checkReservationIdExists(reservation_id)) {
-      res.status(409).json({ message: "reservation_id already exists" });
-      return;
-    }
+    const { name, date, tableNumber, time ,numberOfPeople,contact} = req.body;
+    const unbookedTablesResult = await pool.request().query(unbookedTablesQuery);
+    const unbookedTables = unbookedTablesResult.recordset;
     
-  console.log(tableNumber)  
+  // console.log(tableNumber)  
 
      await pool.request()
-      .input("username", sql.VarChar, name)
-      .input("reservation_date", sql.Date, date)
-      .input("tableNumber", sql.VarChar, tableNumber)
-      .input("reservation_time", sql.VarChar, time )
-      .input("No_of_people", sql.Int, numberOfPeople)
-      .input("tel", sql.VarChar, contact)     
+     .input("username", sql.VarChar, name)
+     .input("reservation_date", sql.Date, date)
+     .input("tableNumber", sql.VarChar, tableNumber)
+     .input("reservation_time", sql.VarChar, time)
+     .input("No_of_people", sql.Int, numberOfPeople)
+     .input("tel", sql.VarChar, contact)    
       .query(
-        "INSERT INTO Reservation VALUES (@username,  @reservation_date, @tel, @No_of_people, @reservation_time, @table_number)"
+        "INSERT INTO Reservation(username, reservation_date, tableNumber, reservation_time, no_of_people,tel) VALUES (@username,  @reservation_date, @tableNumber,@reservation_time,  @No_of_people ,@tel)"
       );
 
     res.status(200).json({ message: "Reservation made successfully" });
@@ -104,7 +109,7 @@ export const updateReservation = async (req, res) => {
             .input('tableNumber', sql.VarChar, tableNumber)
             .input('reservation_time', sql.Time, time)
             .input('reservation_date', sql.Date, date)
-            .query("update Reservation set username=@username, table_number=@table_number, reservation_time=@reservation_time, reservation_date=@reservation_date where reservation_id=@reservation_id")
+            .query("update Reservation set username=@username, tableNumber=@tableNumber, reservation_time=@reservation_time, reservation_date=@reservation_date where reservation_id=@reservation_id")
         res.status(200).json({ message: 'reservation updated successfully' })
     } catch (error) {
         res.status(200).json(error);

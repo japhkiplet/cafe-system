@@ -5,10 +5,13 @@ import * as yup from "yup";
 import Axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import './Login.css'
+import { useContext } from "react";
+import  { context } from '../context/Context'
 
 
 
 const login = () => {
+  const {dispatch} = useContext(context)
   const navigate = useNavigate();
   const Schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email is required"),
@@ -17,10 +20,7 @@ const login = () => {
       .string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters long")
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
-        "Password must contain at least one uppercase letter, one lowercase letter, and one digit"
-      ),
+      
   });
 
   const {
@@ -32,14 +32,18 @@ const login = () => {
   });
 
   const onSubmit = (data) => {
+    console.log(data)
     Axios.post("http://localhost:8081/auth/login", data)
-      .then((data) => {
-        if (data.token) {
-          navigate("/");
+      .then(({data}) => {
+        if(data.token){
+          console.log(data)
+          navigate("/")
+          dispatch({ type: "login_success",payload : data})
         }
       })
-      .catch((e) => {
-        alert('unauthorised user',e);
+      .catch(({response}) => {
+        console.log(response)
+        // alert(response.data.error)
       });
   };
 

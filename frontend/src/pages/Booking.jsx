@@ -1,8 +1,11 @@
 import axios from 'axios';
 import './Booking.css';
 import { useState, useEffect } from 'react';
+import { useContext } from "react";
+import  { context } from '../context/Context'
 
 const Booking = () => {
+  const {user} = useContext(context)
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [tableNumber, setTableNumber] = useState('');
@@ -14,7 +17,13 @@ const Booking = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const response = await fetch('http://localhost:8081/available-tables');
+        const response = await fetch('http://localhost:8081/available-tables',{
+          method: "GET",
+          headers: {
+            authorization: "token from local storage/context"
+
+          }
+        });
         const data = await response.json();
         setAvailableTables(data.tables);
       } catch (error) {
@@ -41,39 +50,26 @@ const Booking = () => {
       numberOfPeople
     };
 
-    
-      axios.post("http://localhost:8081/reservation", data)
+    console.log(bookingData)
+      axios.post("http://localhost:8081/reservation", bookingData)
         .then((data) => {
           if (data.token) {
             navigate("/");
+            
           }
         })
         .catch((e) => {
-          alert(e);
+          console.log(e);
         });
       
     
-    // fetch('http//localhost:8081/reservation', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(bookingData)
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log(data); 
-    //     alert('Table booking successful!');
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //     // alert('An error occurred while processing the booking. Please try again.');
-    //   });
+   
   };
 
   return (
     <div className="table">
       <div className="table-header">
+        {/* <p>{user.username}</p> */}
         <h1>Book a table</h1>
       </div>
       <form onSubmit={handleSubmit}>
@@ -100,7 +96,7 @@ const Booking = () => {
               />
             </div>
             <div className="form-group">
-                <select>
+                <select onChange={e =>setTableNumber(e.target.value)}>
                   <option value="">Select a table</option>
                   {availableTables.map(table => (
                     <option key={table.tableId} value={table.tableNumber}>

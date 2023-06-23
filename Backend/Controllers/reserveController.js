@@ -8,14 +8,12 @@ export const getAvailableTables = async (req, res) => {
     try {
         const result = await pool.request()
         .query('SELECT tableId, tableNumber FROM reserve');
-
-        const availableTables = Array.from({ length: 120 }, (_, index) => ({
-            tableId: index + 1,
-            tableNumber: `Table ${index + 1}`
-          }));
-    
+      const tableNumbers = []
+     result.recordset.forEach(table=>{
+      tableNumbers.push({tableNumber: table.tableNumber})
+     })
+    res.json({tables: tableNumbers})
         // Send the available tables as the response
-        res.json({ tables: availableTables });
       } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: 'An error occurred while fetching available tables.' });
