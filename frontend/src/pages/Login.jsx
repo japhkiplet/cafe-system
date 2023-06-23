@@ -32,11 +32,11 @@ const login = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
+    
     Axios.post("http://localhost:8081/auth/login", data)
       .then(({data}) => {
         if(data.token){
-          console.log(data)
+          
           navigate("/")
           dispatch({ type: "login_success",payload : data})
         }
