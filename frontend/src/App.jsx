@@ -29,7 +29,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/booking' element={ <Booking/> }/>
+        <Route path='/booking' element={<Booking/>}/>
         <Route path='/menu' element={<Menu/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>

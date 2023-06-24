@@ -7,6 +7,7 @@ import  { context } from '../context/Context'
 const Booking = () => {
   const {user} = useContext(context)
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
   const [tableNumber, setTableNumber] = useState('');
   const [date, setDate] = useState('');
@@ -43,6 +44,7 @@ const Booking = () => {
     // Send the booking data to backend 
     const bookingData = {
       name,
+      email,
       contact,
       tableNumber,
       date,
@@ -83,6 +85,16 @@ const Booking = () => {
                 placeholder="username"
                 value={name}
                 onChange={e => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name=""
+                required
+                placeholder="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </div>
             <div className="form-group">

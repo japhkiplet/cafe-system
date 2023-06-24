@@ -17,12 +17,7 @@ const Schema =yup.object().shape({
   
   password: yup.string()
   .required('Password is required')
-  .min(6, 'Password must be at least 6 characters long')
-  .matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
-    'Password must contain at least one uppercase letter, one lowercase letter, and one digit'),
-
- 
+  .min(6, 'Password must be at least 6 characters long'),
 })
 
   const {register, handleSubmit, formState: { errors }} = useForm({

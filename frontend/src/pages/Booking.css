@@ -60,7 +60,9 @@ select {
   }
   
   select:focus {
+    border: none;
     outline: none;
+    font-weight: 600;
     border-color: green;
     color: rgb(231, 102, 16);
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
@@ -147,12 +149,9 @@ select {
 /* <-------------------------BOTTOM-------------------------> */
 
 .detail-bottom .form-group1 button {
-    /* padding-top: 20px; */
-    background: transparent;
-    /* display: inline-flex; */
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 5px;
     width: 20vw;
     height: 40px;
     color: white;

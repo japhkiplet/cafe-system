@@ -1,6 +1,6 @@
 import sql from 'mssql';
 import config from '../data/config.js';
-import moment from 'moment';
+import nodemailer from 'nodemailer';
 
 
 
@@ -53,32 +53,57 @@ export const createReservation = async (req, res) => {
     FROM reservation
   )
 `;
+
   try {
-    const { name, date, tableNumber, time ,numberOfPeople,contact} = req.body;
+    const {reservation_id, name, date, tableNumber, time, numberOfPeople, contact, email } = req.body;
     const unbookedTablesResult = await pool.request().query(unbookedTablesQuery);
     const unbookedTables = unbookedTablesResult.recordset;
-    
-  // console.log(tableNumber)  
 
-     await pool.request()
-     .input("username", sql.VarChar, name)
-     .input("reservation_date", sql.Date, date)
-     .input("tableNumber", sql.VarChar, tableNumber)
-     .input("reservation_time", sql.VarChar, time)
-     .input("No_of_people", sql.Int, numberOfPeople)
-     .input("tel", sql.VarChar, contact)    
+    await pool
+      .request()
+      .input('username', sql.VarChar, name)
+      .input('email', sql.VarChar, email)
+      .input('reservation_date', sql.Date, date)
+      .input('tableNumber', sql.VarChar, tableNumber)
+      .input('reservation_time', sql.VarChar, time)
+      .input('No_of_people', sql.Int, numberOfPeople)
+      .input('tel', sql.VarChar, contact)
       .query(
-        "INSERT INTO Reservation(username, reservation_date, tableNumber, reservation_time, no_of_people,tel) VALUES (@username,  @reservation_date, @tableNumber,@reservation_time,  @No_of_people ,@tel)"
+        'INSERT INTO Reservation(username,email, reservation_date, tableNumber, reservation_time, no_of_people, tel) VALUES (@username,@email, @reservation_date, @tableNumber, @reservation_time, @No_of_people, @tel)'
       );
 
-    res.status(200).json({ message: "Reservation made successfully" });
+    // Send the email to the user
+    
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'japhkiplet@gmail.com',
+        pass: 'zbiclmxwgnrptofs',
+      },
+    });
+
+    const mailOptions = {
+      from: 'japhkiplet@gmail.com',
+      to: email,
+      subject: 'Reservation Confirmation',
+      text: `Your reservation has been successfully made. Reservation ID: ${reservation_id}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log('Error sending email:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
+
+    res.status(200).json({ message: 'Reservation made successfully' });
   } catch (error) {
     res.status(400).json({ message: error.message });
   } finally {
     sql.close();
   }
 };
-
 
 //get a reservation
 export const getReservation = async (req, res) => {
