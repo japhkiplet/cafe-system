@@ -1,3 +1,4 @@
+import { loginRequired } from "../Controllers/UserController.js";
 import { createReservation, deleteReservation, getAllReservations, getReservation, updateReservation } from "../Controllers/tableController.js";
 
 
@@ -5,8 +6,8 @@ import { createReservation, deleteReservation, getAllReservations, getReservatio
 const routes = (app) => {
     //people routes
     app.route('/reservation')
-        .get( getAllReservations)
-        .post(createReservation );
+        .get(loginRequired, getAllReservations)
+        .post(loginRequired,createReservation );
 
     app.route('/reservation/:id')
         .put(updateReservation)

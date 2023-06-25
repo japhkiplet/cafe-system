@@ -111,6 +111,11 @@ body{
     background: white;
     color: #162938;
 }
+
+#icons {
+    margin-right: 4px;
+ }
+
 /* --footer page */
 
 .blog__footer{

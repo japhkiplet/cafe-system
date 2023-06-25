@@ -1,6 +1,7 @@
 import  express  from "express";
 import config from "./data/config.js";
 import jwt from 'jsonwebtoken';
+import CommentRouter from './Routes/CommentRouter.js'
 import userRouter from './Routes/UserRouter.js'
 import tableRouter from './Routes/TableRouter.js'
 import reserveRouter from './Routes/reserveRouter.js'
@@ -37,7 +38,9 @@ app.use((req, res, next) => {
 //routes
 userRouter(app);
 tableRouter(app);
-reserveRouter(app)
+reserveRouter(app);
+CommentRouter(app);
+
 
 
 

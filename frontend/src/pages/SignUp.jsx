@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import axios  from "axios";
 import './Login.css'
+import { ApiDomain } from "../utils/utils";
 
 
 const SignUp = () => {
@@ -24,7 +25,7 @@ const Schema =yup.object().shape({
     resolver :yupResolver(Schema)})
 
   const onSubmit = (data) =>{
-    axios.post('http://localhost:8081/auth/register',data)
+    axios.post(`${ApiDomain}/auth/register`,data)
      .then((response) =>{
       response.data.message && alert(response.data.message);
       navigate("/login")

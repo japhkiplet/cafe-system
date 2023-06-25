@@ -6,12 +6,13 @@ import Axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import './Login.css'
 import { useContext } from "react";
-import  { context } from '../context/Context'
+import  { Context } from '../context/Context'
+import { ApiDomain } from "../utils/utils";
 
 
 
 const login = () => {
-  const {dispatch} = useContext(context)
+  const { user, dispatch } = useContext(Context)
   const navigate = useNavigate();
   const Schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email is required"),
@@ -32,21 +33,20 @@ const login = () => {
   });
 
   const onSubmit = (data) => {
-    
-    Axios.post("http://localhost:8081/auth/login", data)
-      .then(({data}) => {
-        if(data.token){
-          
-          navigate("/")
-          dispatch({ type: "login_success",payload : data})
-        }
-      })
-      .catch(({response}) => {
-        console.log(response)
-        // alert(response.data.error)
-      });
-  };
-
+      Axios.post(`${ApiDomain}/auth/login`, data)
+        .then(({ data }) => {
+          if (data.token) {
+            dispatch({ type: "login_success", payload: data })
+            navigate("/")
+            
+            
+          }
+        }).catch(({response}) => {
+              dispatch({ type: "login_failure" })
+              alert(response?.data.error)
+        });
+    };
+    // console.log(user);
   return (
     <div className="login-container">
       <form id="form" onSubmit={handleSubmit(onSubmit)}>

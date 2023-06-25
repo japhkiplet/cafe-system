@@ -1,4 +1,4 @@
-.menu-containe{
+.menu-container{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     align-items: center;
     height: 100vh;
     margin: 5rem;
-    left: 40px;
+    /* left: 40px; */
     /* background: darkblue; */
 }
 

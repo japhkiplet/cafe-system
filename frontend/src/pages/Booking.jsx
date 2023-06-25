@@ -2,10 +2,11 @@ import axios from 'axios';
 import './Booking.css';
 import { useState, useEffect } from 'react';
 import { useContext } from "react";
-import  { context } from '../context/Context'
+import  { Context } from '../context/Context'
+import { ApiDomain } from '../utils/utils';
 
 const Booking = () => {
-  const {user} = useContext(context)
+  const {user} = useContext(Context)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
@@ -18,7 +19,7 @@ const Booking = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const response = await fetch('http://localhost:8081/available-tables',{
+        const response = await fetch(`${ApiDomain}/available-tables`, {
           method: "GET",
           headers: {
             authorization: "token from local storage/context"
@@ -28,7 +29,7 @@ const Booking = () => {
         const data = await response.json();
         setAvailableTables(data.tables);
       } catch (error) {
-        console.error('Error:', error);
+        // console.error('Error:', error);
         alert('An error occurred while fetching available tables. Please try again.');
       }
     };
@@ -53,16 +54,15 @@ const Booking = () => {
     };
 
     console.log(bookingData)
-      axios.post("http://localhost:8081/reservation", bookingData)
-        .then((data) => {
-          if (data.token) {
-            navigate("/");
-            
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      axios.post(`${ApiDomain}/reservation`, bookingData , 
+      { headers: { "Authorization": `${user.token}` } })
+      .then((response) => {
+        response.data.message && alert(response.data.message)
+        reset();
+    })
+    .catch(({ response }) => {
+        alert(response.data.error)
+    });
       
     
    
