@@ -24,8 +24,8 @@ const Contact = () => {
               reset();
           })
           .catch(({ response }) => {
-              // alert(response.data.error)
-              console.log(response)
+              alert(response.data.error)
+              // console.log(response)
           });
   };
   return (

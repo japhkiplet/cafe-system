@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { FaSignOutAlt } from "react-icons/fa"
 import { useContext } from "react";
 import  { Context } from '../context/Context'
@@ -6,10 +6,12 @@ import  { Context } from '../context/Context'
 
 
 const Header = () => {
+  const navigate = useNavigate()
   const { user, dispatch } = useContext(Context);
   // const user = localStorage.getItem("user")
     const handleLogout = () => {
-      dispatch({ type: "LogOut"  });
+      // dispatch({ type: "LogOut"  });
+      localStorage.clear()
       navigate("/login");
     }
 
@@ -32,7 +34,7 @@ const Header = () => {
         
       } 
       {user && (
-         <Link onClick={handleLogout} style={{ color: "yellow" }}><FaSignOutAlt id="icons" /> Logout</Link>
+         <button onClick={handleLogout} style={{ color: "yellow", background: "transparent",border: "none", outline: "none", height: '30px',width: '100%' }}><FaSignOutAlt id="icons" /> Logout</button>
          )
       }        
            

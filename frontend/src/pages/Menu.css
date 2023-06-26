@@ -4,10 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 5rem;
-    /* left: 40px; */
-    /* background: darkblue; */
+    margin: 1rem;
+   
 }
 
 .menu{

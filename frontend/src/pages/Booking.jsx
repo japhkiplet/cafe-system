@@ -16,29 +16,23 @@ const Booking = () => {
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [availableTables, setAvailableTables] = useState([]);
 
-  useEffect(() => {
+  
     const fetchTables = async () => {
-      try {
-        const response = await fetch(`${ApiDomain}/available-tables`, {
+      
+        const response = await axios.get(`${ApiDomain}/available-tables`, {
           method: "GET",
           headers: {
-            authorization: "token from local storage/context"
+             "Authorization": `${user.token}`
 
           }
         });
-        const data = await response.json();
-        setAvailableTables(data.tables);
-      } catch (error) {
-        // console.error('Error:', error);
-        alert('An error occurred while fetching available tables. Please try again.');
-      }
-    };
-
-    fetchTables();
-  }, []);
+        setAvailableTables(response.data.tables);
+     }
+     useEffect(()=>{
+      fetchTables()
+     }, [])
 
   
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -58,7 +52,7 @@ const Booking = () => {
       { headers: { "Authorization": `${user.token}` } })
       .then((response) => {
         response.data.message && alert(response.data.message)
-        reset();
+        
     })
     .catch(({ response }) => {
         alert(response.data.error)

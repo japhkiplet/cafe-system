@@ -41,23 +41,15 @@ const checkReservationIdExists = async (reservation_id) => {
 
 console.log(await checkReservationIdExists("1"));
 
+
+
 //creating a new reservation
-
-
 export const createReservation = async (req, res) => {
-  const unbookedTablesQuery = `
-  SELECT tableNumber
-  FROM reserve
-  WHERE tableNumber NOT IN (
-    SELECT tableNumber
-    FROM reservation
-  )
-`;
+ 
 
   try {
     const {reservation_id, name, date, tableNumber, time, numberOfPeople, contact, email } = req.body;
-    const unbookedTablesResult = await pool.request().query(unbookedTablesQuery);
-    const unbookedTables = unbookedTablesResult.recordset;
+   
 
     await pool
       .request()

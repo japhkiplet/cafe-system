@@ -7,10 +7,10 @@ await pool.connect();
 export const getAvailableTables = async (req, res) => {
     try {
         const result = await pool.request()
-        .query('SELECT tableId, tableNumber FROM reserve');
+        .query('SELECT r.tableNumber FROM reserve r LEFT JOIN reservation rs ON r.tableNumber = rs.tableNumber WHERE rs.tableNumber IS NULL;');
       const tableNumbers = []
      result.recordset.forEach(table=>{
-      tableNumbers.push({tableNumber: table.tableNumber})
+      tableNumbers.push({tableNumber: table.tableNumber});
      })
     res.json({tables: tableNumbers})
         // Send the available tables as the response
