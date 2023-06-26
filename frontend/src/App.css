@@ -24,6 +24,12 @@ body{
     z-index: 999; 
     background: #6D4C41;  
 }
+.nav-menu{
+    font-size: 30px;
+    color: #fff;
+    display: none;
+
+}
 .blog__logo{
     font-size: 2em;
     color: white;
@@ -36,7 +42,8 @@ body{
     align-items: center;
 }
 
-.blog a {
+.blog a,
+.blog-menu a {
     position: relative;
     font-size: 0.7em;
     color: rgb(243, 235, 235);
@@ -46,6 +53,7 @@ body{
     font-size: 20px;
     font-style: italic;
 }
+
 
 
 .blog a::after{
@@ -119,18 +127,12 @@ body{
 /* --footer page */
 
 .blog__footer{
-    /* position: fixed; */
     background-color: hsl(240, 10%, 16%);;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* padding: 2rem ;
-    width: 100vw;
-    height: auto;
-    font-size: 1.1em;
-    margin-top: 10px; */
     border-top-right-radius: 100px;
 }
 .blog__footer p{
@@ -143,14 +145,12 @@ body{
    display: flex;
    flex-direction: column;
    justify-content: center;
-   /* align-items: center; */
+   
 }
 .footer__content{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin-top: 20px; */
-    
     align-items: center;
     color: white;
 }
@@ -169,12 +169,45 @@ body{
     padding-left: 30px;
     border-radius: 50%;
     color: white;
-    /* background: white; */
 }
+
+
 .main-body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border: 1px solid red; */
     min-height: 100vh;
+}
+
+
+@media only screen and (max-width: 900px){
+    .blog{
+        display: none;
+    }
+    .blog-menu{
+        position: absolute;
+        bottom: -25%;
+        left: 50%;
+        transform: translate(-50%, 25%);
+        width: 100%;
+        background-color: #6D4C41;
+        backdrop-filter: blur(20px);
+        padding: 0 20px ;
+        z-index: 999;
+        /* flex-direction: column; */
+    }
+    .blog-menu::after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0,0.2);
+        z-index: -1;
+    }
+    
+    .nav-menu{
+        display: block;
+    }
 }

@@ -1,11 +1,12 @@
 import {Link, useNavigate} from 'react-router-dom'
-import { FaSignOutAlt } from "react-icons/fa"
-import { useContext } from "react";
+import { FaHamburger, FaSignOutAlt } from "react-icons/fa"
+import { useContext, useState } from "react";
 import  { Context } from '../context/Context'
 
 
 
 const Header = () => {
+  const [toggleMenu, setToggleMenu] = useState(false)
   const navigate = useNavigate()
   const { user, dispatch } = useContext(Context);
   // const user = localStorage.getItem("user")
@@ -20,7 +21,8 @@ const Header = () => {
       <div className="blog__logo">
         <span>Cafe</span>
       </div>
-      <div className='blog'>
+      
+      <div className={toggleMenu ? 'blog-menu': 'blog'}>
         <Link to='/'>Home</Link>
         <Link to='/menu'>Menu</Link>
         <Link to='/booking'>Reservation</Link>
@@ -34,13 +36,14 @@ const Header = () => {
         
       } 
       {user && (
-         <button onClick={handleLogout} style={{ color: "yellow", background: "transparent",border: "none", outline: "none", height: '30px',width: '100%' }}><FaSignOutAlt id="icons" /> Logout</button>
-         )
+        <button onClick={handleLogout} style={{ color: "yellow", background: "transparent",border: "none", outline: "none", height: '30px',width: '100%' }}><FaSignOutAlt id="icons" /> Logout</button>
+        )
       }        
            
           
            
         </div>
+      <FaHamburger onClick={()=> setToggleMenu(!toggleMenu)}   className='nav-menu'/>
     </div>
   )
 }

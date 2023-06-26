@@ -5,7 +5,7 @@ import { createComment, deleteComment, getComment, getComments, updateComment } 
 const routes = (app) => {
     //comment routes
     app.route('/comments')
-        .get(loginRequired, getComments)
+        .get( getComments)
         .post(loginRequired, createComment);
 
     app.route('/comment/:id')

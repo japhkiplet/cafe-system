@@ -68,7 +68,7 @@ const Booking = () => {
         {/* <p>{user.username}</p> */}
         <h1>Book a table</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className='book_form' onSubmit={handleSubmit}>
         <div className="details">
           <div className="detail-left">
             <div className="form-group">

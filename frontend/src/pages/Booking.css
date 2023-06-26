@@ -1,12 +1,11 @@
 
 .table {
-    /* background: url('../images/contact-bg.jpg')no-repeat; */
+    background: url('../images/contact-bg.jpg')no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
     width: 100vw;
     margin: 10vh auto 0 auto;
-    /* height: 480px; */
     padding: 20px;
     background-color: transparent;
     backdrop-filter: blur(20px);
@@ -24,10 +23,14 @@
 
 .table h1 {
     font-family: 'Ibarra real nova', sans-serif;
-    color: black;
+    color: rgba(233, 75, 35, 0.733);
     text-transform: uppercase;
     font-size: 20px;
-    padding-top: 20px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(23, 27, 18);
+    width: 100vw;
+    text-align: center;
+    border-radius: 100px;
     
 }
 .form-group{
@@ -44,7 +47,6 @@
     border: none;
     outline: none;
     font-weight: 600;
-    /* color: #162938; */
     font-size: 1em;
     transition: .5s;
     padding: 0 35px 0 5px;
@@ -53,9 +55,8 @@ select {
     padding: 8px;
     font-size: 16px;
     background: transparent;
-    color: rgb(1, 5, 8);
+    color: #eee;
     border: none;
-    
     width: 100%;
   }
   
@@ -80,36 +81,33 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    
+    gap: 56px;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 7px 10px 0 rgba(0, 0, 0, .7);
+    /* height: 60vh; */
    
 }
 
 /* <-------------------------LEFT-------------------------> */
 .details .detail-left {
     font-size: 1.2rem;
-    /* padding-left: .3rem; */
-    /* margin-right: .3rem; */
-    /* width: auto; */
-    /* padding-left: 9rem; */
+    padding: 20px;
 }
 
 .details .detail-left input {
-    background: transparent;
-    
+    background: transparent;   
     border: none;
-    /* border-bottom: 1.5px solid rgb(32, 30, 30); */
     width: 40vw;
     padding: 1.4rem;
 }
 
 
 .details .detail-left ::placeholder {
-    color: rgb(12, 11, 11);
+    color: #eee;
     font-weight: 200;
-    /* align-items: center; */
-    /* justify-content: center; */
     font-family:  sans-serif;
+
 
 }
 
@@ -120,26 +118,21 @@ select {
 
 
 .detail-right {
-    padding: .3rem;
-    margin: .3rem;
-    font-size: 2rem;
-    padding-left: 5rem;
+    font-size: 1.2rem;
+    padding: 20px;
 }
 
 .details .detail-right input {
     background: transparent;
     border: none;
-    
     width: 40vw;
     padding: 1.3rem;
 }
 
 
 .details .detail-right ::placeholder {
-    color: rgb(29, 27, 27);
+    color: #fff;
     font-weight: 200;
-    /* align-items: center;
-    justify-content: center; */
     font-family:  sans-serif;
 
 }
@@ -166,3 +159,53 @@ select {
     background: white;
     color: blue;
 } 
+
+@media only screen and (max-width: 900px){
+    .table{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url("../images/2.jpg")no-repeat center center/cover;
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+        backdrop-filter: blur(40px);
+        border-radius: 12px;
+        box-shadow: 0 7px 10px 0 rgba(0, 0, 0, .7);
+        padding: 10px;
+        gap: 5px;
+
+        /* border: 2px solid brown; */
+    }
+    .details .detail-right input{
+        width: 65vw;
+        
+    }
+
+    .details .detail-left input{
+        width: 65vw;
+    }
+    .detail-bottom .form-group1 button {
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        width: 80%;
+        height: 40px;
+        color: white;
+        background: green;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        
+    }
+    
+    .detail-bottom .form-group1 button:hover {
+        background: white;
+        color: blue;
+    } 
+}
