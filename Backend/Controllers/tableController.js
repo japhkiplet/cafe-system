@@ -70,7 +70,7 @@ export const createReservation = async (req, res) => {
       service: 'gmail',
       auth: {
         user: 'japhkiplet@gmail.com',
-        pass: 'zbiclmxwgnrptofs',
+        pass: 'fbxkmpualfjyouzl',
       },
     });
 
