@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
   const {user} = useContext(Context)
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
@@ -18,16 +18,11 @@ const Booking = () => {
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [availableTables, setAvailableTables] = useState([]);
 
-  // const storedUser = localStorage.getItem("user");
-  // const user1 = JSON.parse(storedUser);
-  // console.log(user1);
+  
   const storedUser = localStorage.getItem("user");
-if (storedUser) {
   const user1 = JSON.parse(storedUser);
-  console.log(user1.email);
-} else {
-  console.log("User data not found in local storage");
-}
+  console.log(user1.email)
+
 
 
   
@@ -49,7 +44,7 @@ if (storedUser) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(hello)
+    
 
     // Send the booking data to backend 
     const bookingData = {
@@ -65,9 +60,13 @@ if (storedUser) {
     console.log(bookingData)
       axios.post(`${ApiDomain}/reservation`, bookingData , 
       { headers: { "Authorization": `${user.token}` } })
+
       .then((response) => {
         response.data.message && alert(response.data.message)
         navigate('/contact')
+        console.log('success')
+        console.log('redirected')
+
     })
     .catch(({ response }) => {
         alert(response.data.error)
@@ -78,9 +77,7 @@ if (storedUser) {
   };
  
 
-  // const storedUser = localStorage.getItem("user")
-  // const user1 = JSON.parse(storedUser)
-  //  console.log(user1)
+  
 
   return (
     <div className="table">
@@ -106,7 +103,7 @@ if (storedUser) {
                 name=""
                 required
                 placeholder="email"
-                value={email}
+                value={user1.email}
                 onChange={e => setEmail(e.target.value)}
               />
             </div>
