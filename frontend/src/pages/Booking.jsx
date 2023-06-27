@@ -18,6 +18,18 @@ const Booking = () => {
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [availableTables, setAvailableTables] = useState([]);
 
+  // const storedUser = localStorage.getItem("user");
+  // const user1 = JSON.parse(storedUser);
+  // console.log(user1);
+  const storedUser = localStorage.getItem("user");
+if (storedUser) {
+  const user1 = JSON.parse(storedUser);
+  console.log(user1.email);
+} else {
+  console.log("User data not found in local storage");
+}
+
+
   
     const fetchTables = async () => {
       
@@ -37,6 +49,7 @@ const Booking = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(hello)
 
     // Send the booking data to backend 
     const bookingData = {
@@ -63,6 +76,11 @@ const Booking = () => {
     
    
   };
+ 
+
+  // const storedUser = localStorage.getItem("user")
+  // const user1 = JSON.parse(storedUser)
+  //  console.log(user1)
 
   return (
     <div className="table">

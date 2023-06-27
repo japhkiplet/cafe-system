@@ -15,6 +15,7 @@ export const ContextProvider = ({ children }) =>{
     const [state ,dispatch] = useReducer(Reducer, initial_state);
     useEffect(() =>{
        localStorage.setItem("user", JSON.stringify(state.user))
+    //    console.log(state.user)
     }, [state.user])
 
     return(

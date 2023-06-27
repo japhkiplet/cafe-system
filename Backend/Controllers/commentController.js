@@ -34,9 +34,9 @@ export const getComment = async (req, res) => {
 // // Create a new comment
 export const createComment = async (req, res) => {
     try {
-        console.log('create comment')
+        // console.log('create comment')
         const { description } = req.body;
-        console.log(description);
+        // console.log(description);
         let pool = await sql.connect(config.sql);
         let insertComment = await pool.request()
             .input("description", sql.VarChar, description)

@@ -8,7 +8,7 @@ const routes = (app) => {
         .get( getComments)
         .post(createComment);
 
-    app.route('/comment/:id')
+    app.route('/comments/:id')
         .put(updateComment)
         .get(getComment)
         .delete(deleteComment);
