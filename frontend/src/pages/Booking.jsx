@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import { useContext } from "react";
 import  { Context } from '../context/Context'
 import { ApiDomain } from '../utils/utils';
+import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
   const {user} = useContext(Context)
+  const navigate = useNavigate
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('');
@@ -52,7 +54,7 @@ const Booking = () => {
       { headers: { "Authorization": `${user.token}` } })
       .then((response) => {
         response.data.message && alert(response.data.message)
-        
+        navigate('/contact')
     })
     .catch(({ response }) => {
         alert(response.data.error)
@@ -65,7 +67,6 @@ const Booking = () => {
   return (
     <div className="table">
       <div className="table-header">
-        {/* <p>{user.username}</p> */}
         <h1>Book a table</h1>
       </div>
       <form className='book_form' onSubmit={handleSubmit}>

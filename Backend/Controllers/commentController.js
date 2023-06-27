@@ -34,16 +34,18 @@ export const getComment = async (req, res) => {
 // // Create a new comment
 export const createComment = async (req, res) => {
     try {
+        console.log('create comment')
         const { description } = req.body;
+        console.log(description);
         let pool = await sql.connect(config.sql);
         let insertComment = await pool.request()
             .input("description", sql.VarChar, description)
             .query("insert into comments (description) values (@description)"); 
-        res.status(201).json({ message: 'comment created successfully' });
+        res.status(201).json({ message: 'comment created successfully',data:insertComment });
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while creating the comment' });
     } finally {
-        sql.close();   
+        sql.close();  
     }
 };
 // // Update a comment

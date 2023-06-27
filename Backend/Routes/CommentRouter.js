@@ -6,7 +6,7 @@ const routes = (app) => {
     //comment routes
     app.route('/comments')
         .get( getComments)
-        .post(loginRequired, createComment);
+        .post(createComment);
 
     app.route('/comment/:id')
         .put(updateComment)
