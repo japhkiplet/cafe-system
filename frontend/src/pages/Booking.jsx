@@ -19,13 +19,8 @@ const Booking = () => {
   const [availableTables, setAvailableTables] = useState([]);
 
   
-  const storedUser = localStorage.getItem("user");
-  const user1 = JSON.parse(storedUser);
-  console.log(user1.email)
 
-
-
-  
+ 
     const fetchTables = async () => {
       
         const response = await axios.get(`${ApiDomain}/available-tables`, {
@@ -64,8 +59,6 @@ const Booking = () => {
       .then((response) => {
         response.data.message && alert(response.data.message)
         navigate('/contact')
-        console.log('success')
-        console.log('redirected')
 
     })
     .catch(({ response }) => {
@@ -103,7 +96,7 @@ const Booking = () => {
                 name=""
                 required
                 placeholder="email"
-                value={user1.email}
+                value={email}
                 onChange={e => setEmail(e.target.value)}
               />
             </div>
