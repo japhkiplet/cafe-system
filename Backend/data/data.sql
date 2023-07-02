@@ -1,6 +1,6 @@
 create database CAFE;
 
---tables
+-- tables
 create table Users(
     user_id int PRIMARY KEY IDENTITY(1,1),
     username varchar(50),
@@ -11,10 +11,18 @@ create table Users(
 )
 
 
-create table reserve(
-    tableId int IDENTITY(1,1),
-    tableNumber varchar(20) PRIMARY KEY
-)
+CREATE TABLE reserve (
+  tableId INT IDENTITY(1,1),
+  tableNumber VARCHAR(20) PRIMARY KEY
+);
+
+DECLARE @counter INT = 1;
+WHILE (@counter <= 80)
+BEGIN
+  INSERT INTO reserve (tableNumber) VALUES ('Table ' + CAST(@counter AS VARCHAR(10)));
+  SET @counter = @counter + 1;
+END
+
 
 create table Reservation(
     reservation_id int IDENTITY(100,1),

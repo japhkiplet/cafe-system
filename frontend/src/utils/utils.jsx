@@ -1,1 +1,1 @@
-export const ApiDomain = 'http://localhost:8081';
+export const ApiDomain = 'https://kyucafeapi.azurewebsites.net/';
